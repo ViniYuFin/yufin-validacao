@@ -3,18 +3,9 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      }
-    }
-  ],
   "headers": [
     {
-      "source": "/(.*)\\.(js|css|html)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
