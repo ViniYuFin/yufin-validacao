@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Validação - YüFin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">YüFin</div>
+                <div class="logo-subtitle">Dashboard de Validação</div>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total de Respostas</h3>
+                <div class="value" id="totalResponses">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Leads Quentes</h3>
+                <div class="value" id="highPriority">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Lead Score Médio</h3>
+                <div class="value" id="avgScore">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Taxa de Conversão Potencial</h3>
+                <div class="value" id="conversionRate">-</div>
+            </div>
+        </div>
+        
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Disposição de Pagar</h3>
+                <div class="chart-bars" id="wouldPayChart"></div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>Urgência (Quando Começar)</h3>
+                <div class="chart-bars" id="urgencyChart"></div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>Prioridade dos Leads</h3>
+                <div class="chart-bars" id="priorityChart"></div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>Faixa de Preço Aceita</h3>
+                <div class="chart-bars" id="priceChart"></div>
+            </div>
+        </div>
+        
+        <!-- Top Leads -->
+        <div class="leads-section">
+            <h2>🏆 Top 20 Leads</h2>
+            <div id="leadsTable">
+                <div class="loading">Carregando leads...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>

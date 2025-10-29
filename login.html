@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Dashboard YüFin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #EE9116 0%, #FFB300 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            font-family: 'Cherry Bomb One', cursive;
+            font-size: 4rem;
+            font-weight: 400;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            animation: bounceIn 0.6s ease-out;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-subtitle {
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes bounceIn {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        label {
+            display: block;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Nunito', sans-serif;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        input::placeholder {
+            color: #adb5bd;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 0 0 4px rgba(255, 255, 255, 0.25);
+            background: white;
+            transform: translateY(-2px);
+        }
+        
+        button {
+            width: 100%;
+            padding: 1.2rem;
+            background: #4FD1C5;
+            color: white;
+            border: 3px solid #4FD1C5;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(79, 209, 197, 0.3);
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
+        }
+        
+        button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(79, 209, 197, 0.4);
+            background: #3DA095;
+            border-color: #3DA095;
+        }
+        
+        button:active:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(79, 209, 197, 0.3);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            background: #9ae5da;
+            color: white;
+            border-color: #9ae5da;
+        }
+        
+        .error {
+            background: rgba(255, 255, 255, 0.98);
+            color: #c0392b;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            animation: shake 0.5s;
+            border: 3px solid rgba(192, 57, 43, 0.4);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.2);
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">YüFin</div>
+        <div class="logo-subtitle">Dashboard de Validação</div>
+        
+        <div id="errorMessage" class="error" style="display: none;"></div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="username">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            
+            <button type="submit" id="loginBtn">Entrar</button>
+        </form>
+    </div>
+    
+    <script>
+        // Detectar se está rodando localmente (file:// ou localhost)
+        const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const API_URL = isLocal ? 'http://localhost:3001' : 'https://yufin-backend.vercel.app';
+        
+        console.log('🔍 Ambiente:', isLocal ? 'Local' : 'Produção');
+        console.log('🔍 API URL:', API_URL);
+        
+        // Check if already logged in
+        if (localStorage.getItem('adminToken')) {
+            window.location.href = 'dashboard.html';
+        }
+        
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const errorDiv = document.getElementById('errorMessage');
+            
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Entrando...';
+            errorDiv.style.display = 'none';
+            
+            try {
+                // Login through landing auth endpoint
+                const response = await fetch(`${API_URL}/api/landing/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'Credenciais inválidas');
+                }
+                
+                // Check if user is admin
+                if (!data.user || data.user.role !== 'admin') {
+                    throw new Error('Acesso restrito apenas para administradores');
+                }
+                
+                // Store token
+                localStorage.setItem('adminToken', data.accessToken);
+                
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+                
+            } catch (error) {
+                console.error('❌ Erro no login:', error);
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = 'block';
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Entrar';
+            }
+        });
+    </script>
+</body>
+</html>

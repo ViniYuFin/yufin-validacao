@@ -1,0 +1,17 @@
+{
+  "name": "yufin-validacao-mercado",
+  "version": "1.0.0",
+  "description": "Dashboard de validação de mercado - YüFin",
+  "main": "login.html",
+  "scripts": {
+    "dev": "echo 'Abrir login.html no navegador'"
+  },
+  "keywords": [
+    "dashboard",
+    "validacao",
+    "yufin"
+  ],
+  "author": "YüFin",
+  "license": "ISC"
+}
+

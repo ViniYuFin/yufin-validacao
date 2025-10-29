@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajude o YüFin a Crescer - Pesquisa de Mercado</title>
+    <meta name="description" content="Ajude-nos a entender melhor o mercado de educação financeira para crianças e adolescentes">
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        /* Estilos específicos para página de validação */
+        .validation-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 2rem 0;
+        }
+        
+        .validation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .validation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .validation-logo {
+            font-size: 4rem;
+            font-family: 'Cherry Bomb One', cursive;
+            background: linear-gradient(135deg, #ee9116 0%, #ffb300 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .validation-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .validation-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+        
+        .incentive-box {
+            background: rgba(238, 145, 22, 0.05);
+            border-left: 3px solid #ee9116;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .incentive-box h3 {
+            color: #ee9116;
+            font-size: 1.1rem;
+            margin: 0 0 0.25rem 0;
+            font-weight: 600;
+        }
+        
+        .incentive-box p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: rgba(238, 145, 22, 0.05);
+            border-left: 3px solid #ee9116;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .hero-section h2 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .yufin-logo {
+            font-family: 'Cherry Bomb One', cursive;
+            font-weight: 400;
+            background: linear-gradient(135deg, #ee9116 0%, #ffb300 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline;
+            white-space: nowrap;
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .form-group label.required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Nunito Sans', sans-serif;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ee9116;
+            box-shadow: 0 0 0 3px rgba(238, 145, 22, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .radio-item input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #ee9116 0%, #ffb300 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(238, 145, 22, 0.3);
+        }
+        
+        .submit-button:active {
+            transform: translateY(0);
+        }
+        
+        .section-divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(135deg, #ee9116 0%, #ffb300 100%);
+            margin: 2rem 0;
+        }
+        
+        .info-text {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ee9116 0%, #ffb300 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .validation-container {
+                padding: 1rem;
+            }
+            
+            .validation-logo {
+                font-size: 3rem;
+            }
+            
+            .validation-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hero-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .form-card {
+                padding: 1.5rem;
+            }
+            
+            .checkbox-group,
+            .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="validation-page">
+        <div class="validation-container">
+            <!-- Header -->
+            <div class="validation-header">
+                <div class="validation-logo">YüFin</div>
+            </div>
+            
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <h2>Sua opinião faz toda diferença!</h2>
+                <p>Ao completar este questionário, você nos ajuda a criar a melhor plataforma de educação financeira para crianças e adolescentes. Em troca, você ganha <strong style="color: #ee9116;">3 meses de acesso gratuito</strong> ao <span class="yufin-logo">YüFin</span> quando lançarmos.</p>
+            </div>
+            
+            <!-- Formulário -->
+            <form id="validationForm" class="form-card">
+                <!-- Seção 1: Informações Básicas -->
+                <h2 style="display: flex; align-items: center; font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">
+                    <span class="section-number">1</span>
+                    Quem é você?
+                </h2>
+                
+                <div class="form-group">
+                    <label for="name" class="required">Nome completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <p class="info-text">Enviaremos o cupom de acesso gratuito para este email</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone/WhatsApp (opcional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="relationship" class="required">Seu relacionamento com a(s) criança(s)</label>
+                    <select id="relationship" name="relationship" required>
+                        <option value="">Selecione...</option>
+                        <option value="pai">Pai</option>
+                        <option value="mae">Mãe</option>
+                        <option value="pai_mae">Pai e Mãe</option>
+                        <option value="avo">Avó/Avô</option>
+                        <option value="tutor">Tutor(a) Legal</option>
+                        <option value="professor">Professor(a)</option>
+                        <option value="diretor">Diretor(a) de Escola</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city" class="required">Cidade</label>
+                    <input type="text" id="city" name="city" placeholder="Ex: São Paulo, SP" required>
+                </div>
+                
+                <hr class="section-divider">
+                
+                <!-- Seção 2: Sobre as Crianças -->
+                <h2 style="display: flex; align-items: center; font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">
+                    <span class="section-number">2</span>
+                    Sobre as crianças
+                </h2>
+                
+                <div class="form-group">
+                    <label for="childrenCount" class="required">Quantas crianças você tem/educa?</label>
+                    <select id="childrenCount" name="childrenCount" required>
+                        <option value="">Selecione...</option>
+                        <option value="1">1 criança</option>
+                        <option value="2">2 crianças</option>
+                        <option value="3">3 crianças</option>
+                        <option value="4">4 crianças</option>
+                        <option value="5+">5 ou mais crianças</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="childrenAges" class="required">Idades das crianças</label>
+                    <input type="text" id="childrenAges" name="childrenAges" placeholder="Ex: 8, 12 e 15 anos" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">As crianças gostam de jogos/vídeo-games?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="likesGames" value="muito" required>
+                            Sim, muito!
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="likesGames" value="moderado" required>
+                            Mais ou menos
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="likesGames" value="não" required>
+                            Não, pouco interesse
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Você já ensina educação financeira para as crianças?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="teachesFinance" value="sim" required>
+                            Sim, já ensino
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="teachesFinance" value="parcial" required>
+                            Às vezes, de forma básica
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="teachesFinance" value="nao" required>
+                            Não, mas gostaria de ensinar
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="teachingMethods">Como você ensina ou gostaria de ensinar? (pode marcar várias)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="teachingMethods" value="mesada">
+                            Mesada
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="teachingMethods" value="cofrinho">
+                            Cofrinho
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="teachingMethods" value="conversas">
+                            Conversas
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="teachingMethods" value="jogos">
+                            Jogos/Apps
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="teachingMethods" value="livros">
+                            Livros
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="teachingMethods" value="outros">
+                            Outros
+                        </label>
+                    </div>
+                </div>
+                
+                <hr class="section-divider">
+                
+                <!-- Seção 3: Necessidades e Problemas -->
+                <h2 style="display: flex; align-items: center; font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">
+                    <span class="section-number">3</span>
+                    Desafios e Necessidades
+                </h2>
+                
+                <div class="form-group">
+                    <label class="required">Quais são seus principais desafios para ensinar educação financeira? (marque até 3)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="challenges" value="falta_tempo">
+                            Falta de tempo
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="challenges" value="falta_conhecimento">
+                            Falta de conhecimento
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="challenges" value="dificuldade_engajamento">
+                            Dificuldade em engajar as crianças
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="challenges" value="falta_recursos">
+                            Falta de recursos/ferramentas
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="challenges" value="idade_apropriada">
+                            Não sei por onde começar na idade deles
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="challenges" value="linguagem">
+                            Achar linguagem apropriada
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="biggestProblem" class="required">Qual é o SEU MAIOR problema ao ensinar educação financeira?</label>
+                    <textarea id="biggestProblem" name="biggestProblem" placeholder="Descreva aqui..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Em uma escala de 0 a 10, quão importante é a educação financeira para suas crianças?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="importance" value="10" required>
+                            10 - Extremamente importante
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="importance" value="7-9" required>
+                            7-9 - Muito importante
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="importance" value="4-6" required>
+                            4-6 - Importante
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="importance" value="1-3" required>
+                            1-3 - Pouco importante
+                        </label>
+                    </div>
+                </div>
+                
+                <hr class="section-divider">
+                
+                <!-- Seção 4: Sobre o YüFin -->
+                <h2 style="display: flex; align-items: center; font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50;">
+                    <span class="section-number">4</span>
+                    Sobre o <span class="yufin-logo">YüFin</span>
+                </h2>
+                
+                <div class="form-group">
+                    <label class="required">Você pagaria por uma plataforma de educação financeira gamificada?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="wouldPay" value="sim_definitivamente" required>
+                            Sim, definitivamente
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldPay" value="provavelmente" required>
+                            Provavelmente sim
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldPay" value="talvez" required>
+                            Talvez
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldPay" value="provavelmente_nao" required>
+                            Provavelmente não
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldPay" value="nao" required>
+                            Não
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="priceRange" class="required">Qual valor você consideraria pagar MENSALMENTE?</label>
+                    <select id="priceRange" name="priceRange" required>
+                        <option value="">Selecione...</option>
+                        <option value="gratis">Prefiro versão gratuita</option>
+                        <option value="5-10">R$ 5 a R$ 10/mês</option>
+                        <option value="10-20">R$ 10 a R$ 20/mês</option>
+                        <option value="20-30">R$ 20 a R$ 30/mês</option>
+                        <option value="30-50">R$ 30 a R$ 50/mês</option>
+                        <option value="50+">R$ 50 ou mais/mês</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mainFeature" class="required">Qual recurso seria MAIS IMPORTANTE para você?</label>
+                    <select id="mainFeature" name="mainFeature" required>
+                        <option value="">Selecione...</option>
+                        <option value="gamificacao">Gamificação (conquistas, pontos, etc)</option>
+                        <option value="lições">Lições interativas</option>
+                        <option value="relatorios">Relatórios de progresso</option>
+                        <option value="desafios">Desafios e missões</option>
+                        <option value="personalizacao">Personalização por idade</option>
+                        <option value="todas">Todas as anteriores</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Quando você gostaria de começar a usar o <span class="yufin-logo">YüFin</span>?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="whenStart" value="imediato" required>
+                            Imediatamente, assim que estiver disponível
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="whenStart" value="um_mes" required>
+                            Nos próximos 30 dias
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="whenStart" value="tres_meses" required>
+                            Nos próximos 3 meses
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="whenStart" value="depois" required>
+                            Depois, sem pressa
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Você conhece alguma plataforma similar de educação financeira?</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="knowsSimilar" value="sim_uso" required>
+                            Sim, e já uso
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="knowsSimilar" value="sim_nao_uso" required>
+                            Sim, conheço mas não uso
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="knowsSimilar" value="nao" required>
+                            Não conheço
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additionalInfo">Mais alguma coisa que você gostaria de nos contar?</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Sugestões, dúvidas, feedbacks..."></textarea>
+                </div>
+                
+                <hr class="section-divider">
+                
+                <!-- Botão de Envio -->
+                <button type="submit" class="submit-button">
+                    🎉 Enviar Respostas e Garantir Acesso Grátis
+                </button>
+                
+                <p class="info-text" style="text-align: center; margin-top: 1rem;">
+                    Ao enviar, você concorda em compartilhar estas informações para fins de pesquisa e desenvolvimento do produto. Você receberá o cupom de acesso gratuito de 3 meses por email quando lançarmos o <span class="yufin-logo">YüFin</span>.
+                    Seus dados serão mantidos em sigilo e usados apenas para este propósito.
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Validação e envio do formulário
+        const form = document.getElementById('validationForm');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Validar checkboxes de desafios (máximo 3)
+            const challengeCheckboxes = form.querySelectorAll('input[name="challenges"]:checked');
+            if (challengeCheckboxes.length > 3) {
+                alert('Por favor, selecione no máximo 3 desafios.');
+                return;
+            }
+            
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Adicionar arrays de checkboxes
+            data.teachingMethods = Array.from(form.querySelectorAll('input[name="teachingMethods"]:checked'))
+                .map(cb => cb.value);
+            data.challenges = Array.from(form.querySelectorAll('input[name="challenges"]:checked'))
+                .map(cb => cb.value);
+            
+            // Enviar dados para o backend
+            console.log('Dados do formulário:', data);
+            
+            try {
+                // Detectar se está rodando localmente
+                const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const API_URL = isLocal ? 'http://localhost:3001' : 'https://yufin-backend.vercel.app';
+                
+                const response = await fetch(`${API_URL}/api/market-validation/submit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert('🎉 Obrigado pela sua participação!\n\nVocê receberá um email em breve com o cupom de acesso gratuito de 3 meses quando lançarmos o YüFin.\n\nContinuaremos em contato para te manter atualizado sobre o desenvolvimento da plataforma!');
+                } else {
+                    throw new Error(result.error || 'Erro ao enviar formulário');
+                }
+            } catch (error) {
+                console.error('Erro ao enviar formulário:', error);
+                alert('Erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
+            }
+        });
+    </script>
+</body>
+</html>
