@@ -3,6 +3,20 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/validacao-mercado.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
